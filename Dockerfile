@@ -18,7 +18,7 @@ COPY --from=support /opt/build /opt/build
 
 RUN (cd /opt/build; make compile INTERNAL=off UPDATER=docker)
 
-FROM golang:latest
+FROM debian:bullseye-slim
 
 COPY --from=build /opt/build/build /opt/jfa-go
 
