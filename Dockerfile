@@ -18,8 +18,9 @@ COPY --from=support /opt/build /opt/build
 
 RUN (cd /opt/build; make compile INTERNAL=off UPDATER=docker)
 
-FROM debian:bullseye-slim
+FROM bitnami/minideb:bullseye
 
+RUN install_packages ca-certificates
 COPY --from=build /opt/build/build /opt/jfa-go
 
 EXPOSE 8056
