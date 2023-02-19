@@ -46,6 +46,7 @@ require (
 	github.com/mailgun/mailgun-go/v4 v4.6.0
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.12 // indirect
+	github.com/meyskens/go-turnstile v0.0.0-20221009122753-ba40a5ee2ceb
 	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/skratchdot/open-golang v0.0.0-20200116055534-eef842397966

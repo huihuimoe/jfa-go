@@ -32,6 +32,8 @@ interface formWindow extends Window {
     userExpiryMessage: string;
     emailRequired: boolean;
     captcha: boolean;
+    captcha_turnstile: boolean;
+    turnstile: any; // or https://www.npmjs.com/package/turnstile-types
 }
 
 loadLangSelector("form");
@@ -310,11 +312,14 @@ function baseValidator(oncomplete: (valid: boolean) => void): void {
             oncomplete(captchaVerified);
             return;
         }
-        while (!captchaChecked) {
-            continue;
-        }
+        // while (!captchaChecked) {
+        //     continue;
+        // }
         oncomplete(captchaVerified);
-    } else {
+    } else if (window.captcha_turnstile) {
+        const resp = window.turnstile.getResponse();
+        oncomplete(!!resp);
+    } {
         oncomplete(true);
     }
 }
@@ -345,6 +350,7 @@ interface sendDTO {
     matrix_contact?: boolean;
     captcha_id?: string;
     captcha_text?: string;
+    turnstile_resp?: string;
 }
 
 const genCaptcha = () => {
@@ -403,6 +409,9 @@ const create = (event: SubmitEvent) => {
     if (window.captcha) {
         send.captcha_id = captchaID;
         send.captcha_text = captchaInput.value;
+    }
+    if (window.captcha_turnstile) {
+        send.turnstile_resp = window.turnstile.getResponse();
     }
     _post("/newUser", send, (req: XMLHttpRequest) => {
         if (req.readyState == 4) {

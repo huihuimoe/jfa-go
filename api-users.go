@@ -463,6 +463,11 @@ func (app *appContext) NewUser(gc *gin.Context) {
 		respond(400, "errorCaptcha", gc)
 		return
 	}
+	if app.config.Section("captcha").Key("enabled_turnstile").MustBool(false) && !app.verifyTurnstile(req.TurnstileResp) {
+		app.info.Printf("%s: New user failed: Captcha Incorrect", req.Code)
+		respond(400, "errorCaptcha", gc)
+		return
+	}
 	if !app.checkInvite(req.Code, false, "") {
 		app.info.Printf("%s New user failed: invalid code", req.Code)
 		respond(401, "errorInvalidCode", gc)

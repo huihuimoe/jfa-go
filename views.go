@@ -10,6 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt"
 	"github.com/hrfee/mediabrowser"
+	"github.com/meyskens/go-turnstile"
 	"github.com/steambap/captcha"
 )
 
@@ -336,6 +337,15 @@ func (app *appContext) verifyCaptcha(code, id, text string) bool {
 	return strings.ToLower(c.Text) == strings.ToLower(text)
 }
 
+func (app *appContext) verifyTurnstile(tsResponse string) bool {
+	ts := turnstile.New(app.config.Section("captcha").Key("turnstile_secret_key").String())
+	//Get IP from RemoteAddr
+	// ip, _, err := net.SplitHostPort(r.RemoteAddr)
+
+	resp, _ := ts.Verify(tsResponse, ""/* ip */)
+	return resp.Success
+}
+
 // @Summary returns 204 if the given Captcha contents is correct for the corresponding captcha ID and invite code.
 // @Param code path string true "invite code"
 // @Param captchaID path string true "captcha ID"
@@ -497,6 +507,8 @@ func (app *appContext) InviteProxy(gc *gin.Context) {
 		"matrixEnabled":      matrix,
 		"emailRequired":      app.config.Section("email").Key("required").MustBool(false),
 		"captcha":            app.config.Section("captcha").Key("enabled").MustBool(false),
+		"captcha_turnstile":  app.config.Section("captcha").Key("enabled_turnstile").MustBool(false),
+		"turnstile_site_key": app.config.Section("captcha").Key("turnstile_site_key").String(),
 	}
 	if telegram {
 		data["telegramPIN"] = app.telegram.NewAuthToken()

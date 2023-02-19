@@ -335,6 +335,30 @@
                     "type": "bool",
                     "value": false,
                     "description": "Enable a CAPTCHA on the account creation form."
+                },
+                "enabled_turnstile": {
+                    "name": "Enabled Cloudflare Turnstile",
+                    "required": false,
+                    "requires_restart": true,
+                    "type": "bool",
+                    "value": false,
+                    "description": "Enabled Cloudflare Turnstile."
+                },
+                "turnstile_site_key": {
+                    "name": "Cloudflare Turnstile Site Key",
+                    "required": false,
+                    "requires_restart": true,
+                    "type": "text",
+                    "value": "your site key",
+                    "description": "Cloudflare Turnstile Site Key."
+                },
+                "turnstile_secret_key": {
+                    "name": "Cloudflare Turnstile Secret Key",
+                    "required": false,
+                    "requires_restart": true,
+                    "type": "text",
+                    "value": "your secret key",
+                    "description": "Cloudflare Turnstile Secret Key."
                 }
             }
         },

@@ -25,6 +25,7 @@ type newUserDTO struct {
 	MatrixContact   bool   `json:"matrix_contact"`                              // Whether or not to use matrix for notifications/pwrs
 	CaptchaID       string `json:"captcha_id"`                                  // Captcha ID (if enabled)
 	CaptchaText     string `json:"captcha_text"`                                // Captcha text (if enabled)
+	TurnstileResp   string `json:"turnstile_resp"`                              // Turnstile Response (if enabled)
 }
 
 type newUserResponse struct {
