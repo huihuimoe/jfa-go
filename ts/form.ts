@@ -446,6 +446,9 @@ const create = (event: SubmitEvent) => {
     }, true, (req: XMLHttpRequest) => {
         if (req.readyState == 4) {
             toggleLoader(submitSpan);
+            if (window.captcha_turnstile) {
+                window.turnstile.reset();
+            }
             if (req.status == 401 || req.status == 400) {
                 if (req.response["error"] as string) {
                     if (req.response["error"] == "confirmEmail") {
