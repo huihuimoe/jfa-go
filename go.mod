@@ -48,7 +48,7 @@ require (
 	github.com/steambap/captcha v1.4.1
 	github.com/swaggo/files v1.0.0
 	github.com/swaggo/gin-swagger v1.5.3
-	github.com/swaggo/swag v1.8.10 // indirect
+	github.com/swaggo/swag v1.16.1 // indirect
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/ugorji/go/codec v1.2.9 // indirect
@@ -59,8 +59,6 @@ require (
 	go.uber.org/multierr v1.9.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/image v0.5.0 // indirect
-	golang.org/x/net v0.7.0 // indirect
-	golang.org/x/tools v0.6.0 // indirect
 	gopkg.in/ini.v1 v1.67.0
 	maunium.net/go/mautrix v0.14.0
 )
