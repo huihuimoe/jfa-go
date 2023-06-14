@@ -267,6 +267,7 @@ func (app *appContext) GetCaptcha(gc *gin.Context) {
 	inv, ok := app.storage.invites[code]
 	if !ok {
 		gcHTML(gc, 404, "invalidCode.html", gin.H{
+			"urlBase":        app.getURLBase(gc),
 			"cssClass":       app.cssClass,
 			"cssVersion":     cssVersion,
 			"contactMessage": app.config.Section("ui").Key("contact_message").String(),
@@ -301,6 +302,7 @@ func (app *appContext) GenCaptcha(gc *gin.Context) {
 	inv, ok := app.storage.invites[code]
 	if !ok {
 		gcHTML(gc, 404, "invalidCode.html", gin.H{
+			"urlBase":        app.getURLBase(gc),
 			"cssClass":       app.cssClass,
 			"cssVersion":     cssVersion,
 			"contactMessage": app.config.Section("ui").Key("contact_message").String(),
@@ -360,6 +362,7 @@ func (app *appContext) VerifyCaptcha(gc *gin.Context) {
 	inv, ok := app.storage.invites[code]
 	if !ok {
 		gcHTML(gc, 404, "invalidCode.html", gin.H{
+			"urlBase":        app.getURLBase(gc),
 			"cssClass":       app.cssClass,
 			"cssVersion":     cssVersion,
 			"contactMessage": app.config.Section("ui").Key("contact_message").String(),
@@ -391,6 +394,7 @@ func (app *appContext) InviteProxy(gc *gin.Context) {
 	inv, ok := app.storage.invites[code]
 	if !ok {
 		gcHTML(gc, 404, "invalidCode.html", gin.H{
+			"urlBase":        app.getURLBase(gc),
 			"cssClass":       app.cssClass,
 			"cssVersion":     cssVersion,
 			"contactMessage": app.config.Section("ui").Key("contact_message").String(),
@@ -409,6 +413,7 @@ func (app *appContext) InviteProxy(gc *gin.Context) {
 		}
 		fail := func() {
 			gcHTML(gc, 404, "404.html", gin.H{
+				"urlBase":        app.getURLBase(gc),
 				"cssClass":       app.cssClass,
 				"cssVersion":     cssVersion,
 				"contactMessage": app.config.Section("ui").Key("contact_message").String(),
@@ -453,7 +458,9 @@ func (app *appContext) InviteProxy(gc *gin.Context) {
 			gc.Redirect(301, jfLink)
 		} else {
 			gcHTML(gc, http.StatusOK, "create-success.html", gin.H{
+				"urlBase":        app.getURLBase(gc),
 				"cssClass":       app.cssClass,
+				"cssVersion":     cssVersion,
 				"strings":        app.storage.lang.Form[lang].Strings,
 				"successMessage": app.config.Section("ui").Key("success_message").String(),
 				"contactMessage": app.config.Section("ui").Key("contact_message").String(),
@@ -542,6 +549,7 @@ func (app *appContext) InviteProxy(gc *gin.Context) {
 func (app *appContext) NoRouteHandler(gc *gin.Context) {
 	app.pushResources(gc, false)
 	gcHTML(gc, 404, "404.html", gin.H{
+		"urlBase":        app.getURLBase(gc),
 		"cssClass":       app.cssClass,
 		"cssVersion":     cssVersion,
 		"contactMessage": app.config.Section("ui").Key("contact_message").String(),
