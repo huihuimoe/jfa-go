@@ -15,7 +15,8 @@ ARG TARGETARCH
 ENV GOARCH=$TARGETARCH
 
 COPY --from=support /opt/build /opt/build
-
+RUN apt-get update -y \
+    && apt-get install git git-lfs -y
 RUN (cd /opt/build; make compile INTERNAL=off UPDATER=docker)
 
 FROM debian:bookworm-slim
