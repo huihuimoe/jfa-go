@@ -26,20 +26,20 @@ require (
 	github.com/go-telegram-bot-api/telegram-bot-api v4.6.4+incompatible
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/gomarkdown/markdown v0.0.0-20230322041520-c84983bdbf2a
-	github.com/hrfee/jfa-go/common v0.0.0-20230421170108-d800b97f69b6
-	github.com/hrfee/jfa-go/docs v0.0.0-20230421170108-d800b97f69b6
-	github.com/hrfee/jfa-go/linecache v0.0.0-20230421170108-d800b97f69b6
-	github.com/hrfee/jfa-go/logger v0.0.0-20230421170108-d800b97f69b6
-	github.com/hrfee/jfa-go/ombi v0.0.0-20230421170108-d800b97f69b6
+	github.com/hrfee/jfa-go/common v0.0.0-20230612174942-cc3871adf6b0
+	github.com/hrfee/jfa-go/docs v0.0.0-20230612174942-cc3871adf6b0
+	github.com/hrfee/jfa-go/linecache v0.0.0-20230612174942-cc3871adf6b0
+	github.com/hrfee/jfa-go/logger v0.0.0-20230612174942-cc3871adf6b0
+	github.com/hrfee/jfa-go/ombi v0.0.0-20230612174942-cc3871adf6b0
 	github.com/hrfee/mediabrowser v0.3.8
 	github.com/itchyny/timefmt-go v0.1.5
 	github.com/lithammer/shortuuid/v3 v3.0.7
-	github.com/mailgun/mailgun-go/v4 v4.8.2
+	github.com/mailgun/mailgun-go/v4 v4.9.0
 	github.com/meyskens/go-turnstile v0.0.0-20221009122753-ba40a5ee2ceb
 	github.com/robert-nix/ansihtml v1.0.1
 	github.com/steambap/captcha v1.4.1
-	github.com/swaggo/files v1.0.0
-	github.com/swaggo/gin-swagger v1.5.3
+	github.com/swaggo/files v1.0.1
+	github.com/swaggo/gin-swagger v1.6.0
 	github.com/swaggo/swag v1.16.1 // indirect
 	github.com/technoweenie/multipartstreamer v1.0.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect
@@ -50,7 +50,7 @@ require (
 	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
-	golang.org/x/image v0.7.0 // indirect
+	golang.org/x/image v0.8.0 // indirect
 	gopkg.in/ini.v1 v1.67.0
 	maunium.net/go/mautrix v0.15.2
 )
@@ -104,11 +104,11 @@ require (
 	go.opentelemetry.io/otel/metric v1.16.0 // indirect
 	go.opentelemetry.io/otel/trace v1.16.0 // indirect
 	golang.org/x/arch v0.3.0 // indirect
-	golang.org/x/crypto v0.9.0 // indirect
+	golang.org/x/crypto v0.10.0 // indirect
 	golang.org/x/exp v0.0.0-20230522175609-2e198f4a06a1 // indirect
-	golang.org/x/net v0.10.0 // indirect
-	golang.org/x/sys v0.8.0 // indirect
-	golang.org/x/text v0.9.0 // indirect
+	golang.org/x/net v0.11.0 // indirect
+	golang.org/x/sys v0.9.0 // indirect
+	golang.org/x/text v0.10.0 // indirect
 	golang.org/x/tools v0.9.3 // indirect
 	google.golang.org/protobuf v1.30.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
