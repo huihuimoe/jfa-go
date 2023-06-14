@@ -18,7 +18,7 @@ COPY --from=support /opt/build /opt/build
 
 RUN (cd /opt/build; make compile INTERNAL=off UPDATER=docker)
 
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 # RUN install_packages ca-certificates
 RUN apt-get update -qq \
